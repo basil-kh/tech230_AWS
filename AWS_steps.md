@@ -61,3 +61,4 @@ then add rule:
 then add the http and https with `0.0.0.0/0` ips so anyone can access them for now and click save![Alt text](imgs2/httpandsave.png)
 16. Should be able to access the nginx website now using the public IPv4 address found on the instance summary page: ![Alt text](imgs2/ip.png)
 17. Should see the nginx website when you click the link: ![Alt text](imgs2/nginx.png)
+18. When you are finished with the instance remember to terminate it : ![Alt text](imgs2/terminateinst.png)
