@@ -62,7 +62,7 @@ Diagram:
 - **Hybrid Cloud**: A hybrid cloud combines both public and private cloud infrastructure, allowing data and applications to be shared between them. It provides flexibility, enabling organizations to leverage the scalability of the public cloud while maintaining sensitive data or critical applications in a private cloud.
 
 - **Private Cloud**: A private cloud is a cloud infrastructure dedicated to a single organization. It can be hosted on-premises or by a third-party service provider. Private clouds offer enhanced control, security, and customization options, but they require more resources for maintenance.
-
+![Alt text](imgs/cloud-comparison.jpg.optimal.jpg)
 ## What types of industry/business use the different types of cloud? (e.g., who uses a private cloud?)
 
 - **Public Cloud**: Public cloud is commonly used by startups, small and medium-sized businesses, and organizations that require scalability and cost-effectiveness without the need for significant infrastructure investments.
@@ -95,3 +95,34 @@ The preference between OpEx and CapEx depends on various factors, including the 
 
 3. **Capital One**: Capital One, a financial services company, migrated a significant portion of its IT infrastructure to the cloud to enhance agility and innovation. By adopting a cloud-first strategy and leveraging AWS, Capital One improved its ability to rapidly develop and deploy new digital banking services and applications. The cloud allowed Capital One to streamline its operations, reduce time-to-market, and deliver enhanced banking experiences to its customers while maintaining security and compliance standards.
 
+# We use it everyday 
+
+Cloud Storage Services:
+
+- Google Drive
+- Dropbox
+
+Web-Based Email Services:
+
+- Gmail
+- Outlook.com
+  
+Video Streaming Platforms:
+
+- Netflix
+- YouTube
+
+Social Media Platforms:
+
+- Facebook
+- Twitter
+
+Cloud-based Productivity Suites:
+
+- Google Workspace
+- Microsoft 365
+
+Cloud-Based Communication Tools:
+
+- Slack
+- Microsoft Teams
