@@ -102,7 +102,7 @@ This command will take a while to copy all the files wait around 5 minutes
 ```bash
 ssh -i ~/.ssh/tech230.pem ubuntu@ec2-34-245-87-61.eu-west-1.compute.amazonaws.com
 ```
-3. Install the dependencies:
+1. Install the dependencies in `cd app` :
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 ```
@@ -112,14 +112,14 @@ sudo apt-get install nodejs -y
 ```bash
 sudo npm install pm2 -g
 ```
-4. Start the website in the background:
+1. Start the website in the background:
 ```bash
 pm2 start app.js
 ```
-5. To allow access to the website we should change access permissions for port 3000, so go to your security group settings  and edit inbound rules:![Alt text](imgs/editinboundrules.png)
-6. Allow public access to port 3000:![Alt text](imgs/addaccess.png)
-7. While you are here change ssh permission to only allow you to enter the instance: ![Alt text](imgs/instanceprivate.png)
-8. You should be able to access your sparta app using the publicip:3000 : ![Alt text](imgs/app.png) This will be available publicly this time as it is a public IP address
+1. To allow access to the website we should change access permissions for port 3000, so go to your security group settings  and edit inbound rules:![Alt text](imgs/editinboundrules.png)
+2. Allow public access to port 3000:![Alt text](imgs/addaccess.png)
+3. While you are here change ssh permission to only allow you to enter the instance: ![Alt text](imgs/instanceprivate.png)
+4. You should be able to access your sparta app using the publicip:3000 : ![Alt text](imgs/app.png) This will be available publicly this time as it is a public IP address
 
 # Setting up the MongoDB instance:
 1. Start an EC2 instance as before and connect to it.
@@ -185,10 +185,32 @@ sudo apt upgrade -y
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927
 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+
 sudo apt install mongodb -y
 
-sudo systemctl start mongod
+sudo systemctl start mongodb
 
-sudo systemctl enable mongod
+sudo systemctl enable mongodb
 ```
 
+
+# Connecting app and db
+1. Add the security group to allow access to MongoDB on port 27017:
+![Alt text](imgs/secgroup.png)
+
+2. In the Mongo server, Make sure to change the mongo config file `sudo nano /etc/mongod.conf` ip to 0.0.0.0 to allow anyone to connect to MongoDB.
+3. after this type the command or add b at end of mongodb depending on version of mongo in use
+
+```bash
+sudo systemctl retart mongod
+```
+4. In the app server add (make sure you are in the home directory)
+```bash
+export DB_HOST=mongodb://<current_mongoserver_ip_this_changes_every_restart:27017/posts
+```
+to the .bashrc file then 
+```
+source .bashrc
+```
+5. Now `cd app` and run `npm install` and this should seed to the server.
