@@ -185,8 +185,6 @@ sudo apt upgrade -y
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927
 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-
 sudo apt install mongodb -y
 
 sudo systemctl start mongodb
@@ -199,18 +197,31 @@ sudo systemctl enable mongodb
 1. Add the security group to allow access to MongoDB on port 27017:
 ![Alt text](imgs/secgroup.png)
 
-2. In the Mongo server, Make sure to change the mongo config file `sudo nano /etc/mongod.conf` ip to 0.0.0.0 to allow anyone to connect to MongoDB.
-3. after this type the command or add b at end of mongodb depending on version of mongo in use
+2. In the Mongo server, Make sure to change the mongo config file `sudo nano /etc/mongodb.conf` ip to 0.0.0.0 to allow anyone to connect to MongoDB.
+3. after this type the command
 
 ```bash
-sudo systemctl retart mongod
+sudo systemctl restart mongodb
 ```
 4. In the app server add (make sure you are in the home directory)
 ```bash
-export DB_HOST=mongodb://<current_mongoserver_ip_this_changes_every_restart:27017/posts
+export DB_HOST=mongodb://<current_mongoserver_Public_Ip_this_changes_every_restart:27017/posts
 ```
 to the .bashrc file then 
 ```
 source .bashrc
 ```
-5. Now `cd app` and run `npm install` and this should seed to the server.
+5. Now `cd app` and run 
+```
+npm install
+``` 
+and this should seed to the server.
+
+6. Start the app with the command 
+```bash
+pm2 start app.js --update-env
+```
+
+# Using AMIs
+
+1. 
