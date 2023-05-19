@@ -17,9 +17,9 @@ chmod 700 example_script.sh
 # 1a. Automate making the reverse proxy: 
 ```bash
 #!/bin/bash
-#replacing whatever is in the /etc/nginx/sites-available/default file with the input below to setup the reverse proxy.
-sed -s 's+try_files $uri $uri/ =404;+proxy_pass http://localhost:3000;'
-sudo sed -s "s/try_files \$uri \$uri\/ =404;/ 
+#replacing `try_files $uri $uri/ =404`; with `proxy_pass http://localhost:3000/` in /etc/nginx/sites-available/default .
+sudo sed -i 's+try_files $uri $uri/ =404;+proxy_pass http://localhost:3000/;+' /etc/nginx/sites-available/default
+
 sudo systemctl restart nginx
 ```
 
