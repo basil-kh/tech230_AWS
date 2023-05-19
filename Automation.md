@@ -18,57 +18,8 @@ chmod 700 example_script.sh
 ```bash
 #!/bin/bash
 #replacing whatever is in the /etc/nginx/sites-available/default file with the input below to setup the reverse proxy.
-sudo bash -c 'cat <<EOF > /etc/nginx/sites-available/default
-
-server {
-
-    listen 80 default_server;
-
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-
-    server_name 192.168.10.100;
-
-
-
-
-    location / {
-
-        proxy_pass http://localhost:3000;
-
-        proxy_http_version 1.1;
-
-        proxy_set_header Upgrade \$http_upgrade;
-
-        proxy_set_header Connection 'upgrade';
-
-        proxy_set_header Host \$host;
-
-        proxy_cache_bypass \$http_upgrade;
-
-    }
-
-    location /posts {
-
-        proxy_pass http://localhost:3000;
-
-        proxy_http_version 1.1;
-
-        proxy_set_header Upgrade \$http_upgrade;
-
-        proxy_set_header Connection 'upgrade';
-
-        proxy_set_header Host \$host;
-
-        proxy_cache_bypass \$http_upgrade;
-
-    }
-
-}
-
-EOF'
-
+sed -s 's+try_files $uri $uri/ =404;+proxy_pass http://localhost:3000;'
+sudo sed -s "s/try_files \$uri \$uri\/ =404;/ 
 sudo systemctl restart nginx
 ```
 
@@ -77,6 +28,7 @@ sudo systemctl restart nginx
 ```bash
 #!/bin/bash
 #making sure app is not running already, then starting it
+cd /home/ubuntu/app
 pm2 stop app.js
 pm2 start app.js --update-env
 ```
@@ -86,8 +38,9 @@ pm2 start app.js --update-env
 ```bash
 #!/bin/bash
 #Change directory to where you want to have the repo cloned
-cd
+cd ~
 #clone the repo
-git clone git@github.com:basil-kh/app_repo.git
+git clone https://github.com/basil-kh/app.git
 
 ```
+
