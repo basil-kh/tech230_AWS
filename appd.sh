@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# Update package lists
+# Update package lists t
 sudo apt-get update -y
 
-# Upgrade installed packages to their latest versions
+# Upgrade installed packages to their latest versions t
 sudo apt-get upgrade -y
 
-# Install the Nginx web server
+sudo apt install sed -y
+
+# Install the Nginx web server t
 sudo apt-get install nginx -y
 #replace tryfiles line with the proxy pass localhost:3000
 sudo sed -i 's+try_files $uri $uri/ =404;+proxy_pass http://localhost:3000/;+' /etc/nginx/sites-available/default
