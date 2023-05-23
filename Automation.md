@@ -29,6 +29,7 @@ sudo systemctl restart nginx
 #!/bin/bash
 #making sure app is not running already, then starting it
 cd /home/ubuntu/app
+npm install
 pm2 stop app.js
 pm2 start app.js --update-env
 ```

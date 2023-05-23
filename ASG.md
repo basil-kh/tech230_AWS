@@ -28,3 +28,14 @@
 12. If created should get prompt![Alt text](imgs3/ASGdone.png)
 13. After its made, make sure to access the ASG throguh the load balancer ![Alt text](imgs3/LBlink.png)
 14. Use the DNS name link to access the website (do not include (A Record) ) ![Alt text](imgs3/lbDNS.png)
+15. For the app, simply use an AMI that works : "ami-07ef3b45fdbadc36" is mine, then in the user data in8 the launch template include the following 
+```bash
+#!/bin/bash
+
+cd /home/ubuntu/app
+
+npm install
+
+pm2 start app.js
+```
+and done.

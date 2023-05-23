@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd /home/ubuntu/
 # Update package lists t
 sudo apt-get update -y
 
@@ -23,9 +23,10 @@ sudo npm install pm2 -g
 echo 'export DB_HOST=mognodb://172.31.58.198:27017/posts' >> .bashrc
 source .bashrc
 
-git clone https://github.com/basil-kh/app.git
+git clone https://github.com/basil-kh/app.git /home/ubuntu/app
 
 cd /home/ubuntu/app
 npm install
-pm2 stop app.js
+# if using for first time no need to stop app.js
+#pm2 stop app.js 
 pm2 start app.js --update-env
