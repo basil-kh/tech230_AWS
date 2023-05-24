@@ -4,6 +4,7 @@ Glossary:
 - RT - Route table
 - ![Alt text](imgs-vpc/Internet%20Gateway%20(1).png)
 
+
 # Create a VPC
 1. ![Alt text](imgs-vpc/1.png)
 2. ![Alt text](imgs-vpc/2.png)
