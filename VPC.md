@@ -44,26 +44,30 @@ Glossary:
 
 # Launching our EC2s
 All remains the same as before except our network settings and security groups:
-## For the app:
-1. Make sure you are on the correct vpc and subnet
+
+## For the DB(run first):
+1. Make sure you are on the correct vpc and subnet(private)
+2. Enable auto-assign public IP
+3. Make a security group that allows SSH(22) to your IP
+- SSH(22) to your IP
+- port(27017) from anywhere(so the app can access the db)
+- use user data and provision script - to automatically get it up
+
+  ![Alt text](imgs-vpc/27-mongosecurity.png)
+## For the app(run after db):
+1. Make sure you are on the correct vpc and subnet(public)
 2. Enable auto-assign public IP
 3. Make a security group that allows SSH(22) to your IP
 - SSH(22) to your IP
 - HTTP(80) from anywhere (0.0.0.0)
 - port(3000) from anywhere(incase reverse proxy doesnt work)
-
+1. make sure db is running already - **Manually** get the private IP from the DB EC2 page and add to **user data** environment variable DB_HOST.
+2. use the **edited** user data and the provision script the get the app running automatically
 ![Alt text](imgs-vpc/28-appsecur.png)
-## For the DB:
-1. Make sure you are on the correct vpc and subnet
-2. Enable auto-assign public IP
-3. Make a security group that allows SSH(22) to your IP
-- SSH(22) to your IP
-- port(27017) from anywhere(so the app can access the db)
 
-  ![Alt text](imgs-vpc/27-mongosecurity.png)
 ![Alt text](imgs-vpc/22-when-creating-instance-only%20part%20to%20change.png)
 ![Alt text](imgs-vpc/23.png)
 ![Alt text](imgs-vpc/24.png)
 ![Alt text](imgs-vpc/25-done.png)
-![Alt text](imgs-vpc/26.png)
-
+# Posts page should be working : 
+![Alt text](imgs-vpc/29-postsworking.png)
