@@ -2,7 +2,8 @@ Glossary:
 - VPC - Virtual Private Cloud
 - IGW - Internet Gateway
 - RT - Route table
-![Alt text](imgs-vpc/Diagram-domyown.png)
+- ![Alt text](imgs-vpc/Internet%20Gateway%20(1).png)
+
 # Create a VPC
 1. ![Alt text](imgs-vpc/1.png)
 2. ![Alt text](imgs-vpc/2.png)
@@ -69,5 +70,5 @@ All remains the same as before except our network settings and security groups:
 ![Alt text](imgs-vpc/23.png)
 ![Alt text](imgs-vpc/24.png)
 ![Alt text](imgs-vpc/25-done.png)
-# Posts page should be working : 
+# Posts page should be working (on ubuntu 18 it took over 10 minutes to load) : 
 ![Alt text](imgs-vpc/29-postsworking.png)
