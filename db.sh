@@ -21,11 +21,12 @@ sudo apt-get install -y mongodb-org
 # Start the MongoDB service
 sudo systemctl start mongodb
 
-# Enable MongoDB to start on system boot
-sudo systemctl enable mongodb
-
 # change the sed to  ip to 0.0.0.0 inside /etc/mongodb.conf
 sudo sed -i 's+bind_ip = 127.0.0.1+bind_ip = 0.0.0.0+' /etc/mongodb.conf
 
-
+# Enable MongoDB to start on system boot
+sudo systemctl enable mongodb
 sudo systemctl restart mongodb
+
+
+# cat /var/log/cloud-init-output.log
