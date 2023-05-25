@@ -10,7 +10,7 @@ sudo systemctl enable nginx
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo npm install pm2 -g
-export DB_HOST=mongodb://10.0.3.97:27017/posts
+export DB_HOST=mongodb://10.0.3.179:27017/posts
 
 git clone https://github.com/basil-kh/app.git /home/ubuntu/app
 sudo systemctl reload nginx
@@ -22,6 +22,6 @@ pm2 start app.js --update-env
 # cat /var/log/cloud-init-output.log
 
 # sudo killall node
-#then restart
+#then restart pm2
 
 
