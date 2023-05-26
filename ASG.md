@@ -1,3 +1,5 @@
+# Setting up ASG
+
 1. Create EC2 instance, as before
 2. Populate EC2 using user data, in VM provision script or maunually.
 3. Instance state >

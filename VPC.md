@@ -1,9 +1,22 @@
+# VPC
+# Table of Contents
+1. [Create a VPC](#create-a-vpc)
+2. [Create IGW](#create-igw)
+3. [Connect IGW to VPC](#connect-igw-to-vpc)
+4. [Create subnet/s](#create-subnets)
+5. [Create public RT](#create-public-rt)
+6. [Link public RT to subnet]()
+7. [Link IGW to RT](#link-igw-to-rt)
+8. [Launching our EC2s](#launching-our-ec2s)
+9. [End](#posts-page-should-be-working-if-all-is-done-correctly)
+
+
 Glossary:
 - VPC - Virtual Private Cloud
 - IGW - Internet Gateway
 - RT - Route table
-- ![Alt text](imgs-vpc/Internet%20Gateway%20(1).png)
 
+![Alt text](imgs-vpc/myvpcdiag2.png)
 
 # Create a VPC
 1. ![Alt text](imgs-vpc/1.png)
