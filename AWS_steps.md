@@ -221,7 +221,3 @@ and this should seed to the server.
 ```bash
 pm2 start app.js --update-env
 ```
-
-# Using AMIs
-
-1. 
